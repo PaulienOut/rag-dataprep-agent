@@ -8,5 +8,19 @@ dependencies = [
     "jupyter>=1.0.0",
     "minsearch>=0.0.5",
     "openai>=1.50.0",
+    "pypdf>=5.0.0",
+    "pytest>=8.0.0",
     "python-dotenv>=1.0.0",
 ]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rag_dataprep_agent*"]
+exclude = ["src*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
