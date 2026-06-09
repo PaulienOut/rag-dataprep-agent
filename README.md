@@ -53,9 +53,17 @@ The exact metadata fields and classification categories will be refined as the p
 
        uv sync
 
-5. Start Jupyter:
+5. Creating a dedicated Jupyter kernel:
+       uv add ipykernel
+       uv run python -m ipykernel install --user --name project-a --display-name "Python (project-a)"   
+
+6. Start Jupyter:
 
        uv run jupyter notebook
+
+       or 
+
+       v run jupyter lab
 
 ## Run the Pipeline
 

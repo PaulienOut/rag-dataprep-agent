@@ -36,6 +36,8 @@ class ContentMetadata:
     summary: str
     subject: str | None
     keywords: list[str] = field(default_factory=list)
+    document_metadata: dict[str, str | None] = field(default_factory=dict)
+    layout_metadata: dict[str, str | None] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
