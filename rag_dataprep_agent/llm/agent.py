@@ -45,6 +45,26 @@ class DocumentPrepAgent:
             subject=data.get("subject") or fallback.subject,
             summary=data.get("summary") or fallback.summary,
             keywords=[str(item) for item in data.get("keywords", fallback.keywords)],
+            document_metadata={
+                "place": (
+                    data.get("document_metadata", {}).get("place")
+                    or getattr(fallback, "document_metadata", {}).get("place")
+                ),
+                "date_of_publication": (
+                    data.get("document_metadata", {}).get("date_of_publication")
+                    or getattr(fallback, "document_metadata", {}).get("date_of_publication")
+                ),
+            },
+            layout_metadata={
+                "header": (
+                    data.get("layout_metadata", {}).get("header")
+                    or getattr(fallback, "layout_metadata", {}).get("header")
+                ),
+                "footer": (
+                    data.get("layout_metadata", {}).get("footer")
+                    or getattr(fallback, "layout_metadata", {}).get("footer")
+                ),
+            },
         )
 
     def embed_texts(self, texts: list[str], embedding_model: str) -> list[list[float]] | None:
