@@ -18,10 +18,15 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> None:
-    args = build_parser().parse_args()
+    parser = build_parser()
+    args = parser.parse_args()
+    input_path = Path(args.input_path)
+    if not input_path.exists():
+        parser.error(f"input path does not exist: {input_path}")
+
     settings = load_settings()
     written = prepare_documents(
-        input_path=Path(args.input_path),
+        input_path=input_path,
         output_dir=Path(args.output_dir),
         settings=settings,
         use_llm=args.use_llm,
