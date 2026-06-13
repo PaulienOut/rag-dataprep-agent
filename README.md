@@ -53,18 +53,6 @@ The exact metadata fields and classification categories will be refined as the p
 
        uv sync
 
-5. Creating a dedicated Jupyter kernel:
-       uv add ipykernel
-       uv run python -m ipykernel install --user --name project-a --display-name "Python (project-a)"   
-
-6. Start Jupyter:
-
-       uv run jupyter notebook
-
-       or 
-
-       v run jupyter lab
-
 ## Run the Pipeline
 
 Run the deterministic local version on a small sample:
@@ -97,11 +85,6 @@ Run the test suite with:
 
 The default tests do not call OpenAI. They test file scanning, PDF parsing, document type detection, chunking, and the pipeline using local deterministic behavior.
 
-## Notebooks
-
-- `notebooks/01-setup.ipynb` - smoke test that confirms your environment works
-- `notebooks/02-rag.ipynb` - a minimal RAG baseline you can adapt to your own data
-
 ## Data
 
-Put your project data in the `data/` folder. See `notebooks/02-rag.ipynb` for how to load it.
+Put PDF documents in the `data/` folder, or pass the path to another PDF or folder when running the pipeline.
