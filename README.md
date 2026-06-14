@@ -71,11 +71,40 @@ Use OpenAI for metadata extraction and embeddings:
 
        uv run python -m rag_dataprep_agent.cli "data" --output-dir prepared --max-files 3 --use-llm --embed
 
+Enable Logfire monitoring for a run:
+
+       uv run python -m rag_dataprep_agent.cli "data" --output-dir prepared --max-files 3 --logfire
+
 The output is written as one JSON manifest per document in:
 
        prepared/manifests/
 
 Each manifest contains source file metadata, PDF metadata, detected document type, extracted content metadata, chunks, and embeddings when enabled.
+
+## Monitoring with Logfire
+
+Logfire support is built into the CLI and pipeline. Monitoring is disabled by default so local tests and demo runs stay quiet.
+
+1. Authenticate for local development:
+
+       uv run logfire auth
+       uv run logfire projects use <your-project>
+
+   For production or CI, set a project write token instead:
+
+       LOGFIRE_TOKEN=<your-write-token>
+
+2. Enable monitoring for a single CLI run:
+
+       uv run python -m rag_dataprep_agent.cli "data" --output-dir prepared --max-files 3 --logfire
+
+   Or enable it from `.env`:
+
+       LOGFIRE_ENABLED=true
+       LOGFIRE_SERVICE_NAME=rag-dataprep-agent
+       LOGFIRE_ENVIRONMENT=development
+
+When enabled, Logfire records spans for the full preparation run and each document, plus summary events with document type, page count, chunk count, and manifest path. OpenAI metadata and embedding calls are also instrumented when `--use-llm` or remote embeddings are active.
 
 ## Testing
 
