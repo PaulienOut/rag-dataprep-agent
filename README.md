@@ -85,6 +85,8 @@ Each manifest contains source file metadata, PDF metadata, detected document typ
 
 Logfire support is built into the CLI and pipeline. Monitoring is disabled by default so local tests and demo runs stay quiet.
 
+For running the monitoring an account on Logfire is required. If none exists, one can be created on https://pydantic.dev/logfire. After that a write token should be created and added to the .env, see .env.example.
+
 1. Authenticate for local development:
 
        uv run logfire auth
