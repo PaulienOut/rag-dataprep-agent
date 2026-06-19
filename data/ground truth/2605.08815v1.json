@@ -1,0 +1,52 @@
+{
+  "source_path": "data/Selection/2605.08815v1.pdf",
+  "file_metadata": {
+    "filename": "2605.08815v1.pdf",
+    "path": "data/Selection/2605.08815v1.pdf",
+    "file_type": "pdf",
+    "size_bytes": 787255,
+    "modified_at": "2026-06-06T17:35:59.225904+00:00"
+  },
+  "pdf_metadata": {
+    "Author": "Seungik Cho",
+    "Creator": "arXiv GenPDF (tex2pdf:a6404ea)",
+    "DOI": "https://doi.org/10.48550/arXiv.2605.08815",
+    "License": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) kpathsea version 6.4.1",
+    "Producer": "pikepdf 8.15.1",
+    "Title": "MicroFuse: Protein-to-Genome Expert Fusion for Microbial Operon Reasoning",
+    "Trapped": "/False",
+    "arXivID": "https://arxiv.org/abs/2605.08815v1",
+    "page_count": 6
+  },
+  "document_type": {
+    "document_type": "arxiv_paper",
+    "confidence": 0.8500000000000001,
+    "evidence": [
+      "arXiv identifier detected"
+    ]
+  },
+  "content_metadata": {
+    "title": "MicroFuse: Protein-to-Genome Expert Fusion for Microbial Operon Reasoning",
+    "summary": "This paper presents MicroFuse, a framework for predicting microbial operon co-membership by integrating protein-scale molecular identity and genome-context organization. It leverages a four-expert Mixture-of-Experts module to effectively model agreement and disagreement between these modalities.",
+    "subject": null,
+    "keywords": [
+      "MicroFuse",
+      "operon co-membership",
+      "protein-scale identity",
+      "genome-context",
+      "bioinformatics",
+      "machine learning",
+      "biofoundation models",
+      "Mixture-of-Experts"
+    ],
+    "document_metadata": {
+      "place": "Texas, USA",
+      "date_of_publication": "May 12, 2026"
+    },
+    "layout_metadata": {
+      "header": "MicroFuse: Protein-to-Genome Expert Fusion for Microbial Operon Reasoning",
+      "footer": "arXiv:2605.08815v1  [cs.LG]  9 May 2026"
+    }
+  }
+}

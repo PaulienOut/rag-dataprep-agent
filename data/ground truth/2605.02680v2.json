@@ -1,0 +1,50 @@
+{
+  "source_path": "data/Selection/2605.02680v2.pdf",
+  "file_metadata": {
+    "filename": "2605.02680v2.pdf",
+    "path": "data/Selection/2605.02680v2.pdf",
+    "file_type": "pdf",
+    "size_bytes": 770704,
+    "modified_at": "2026-06-06T17:35:59.183903+00:00"
+  },
+  "pdf_metadata": {
+    "Author": "Jacob Toner Gosselin; Dalton Rongxuan Zhang",
+    "Creator": "arXiv GenPDF (tex2pdf:a6404ea)",
+    "DOI": "https://doi.org/10.48550/arXiv.2605.02680",
+    "License": "http://creativecommons.org/licenses/by/4.0/",
+    "PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) kpathsea version 6.4.1",
+    "Producer": "pikepdf 8.15.1",
+    "Title": "The Rise of Negative Earnings and Demand Shifting Investment",
+    "Trapped": "/False",
+    "arXivID": "https://arxiv.org/abs/2605.02680v2",
+    "page_count": 39
+  },
+  "document_type": {
+    "document_type": "arxiv_paper",
+    "confidence": 0.8500000000000001,
+    "evidence": [
+      "arXiv identifier detected"
+    ]
+  },
+  "content_metadata": {
+    "title": "The Rise of Negative Earnings and Demand Shifting Investment",
+    "summary": "This paper documents the rise of negative earnings among US firms from 1980 to 2019, exploring the increase in both the percentage of firms reporting losses and the persistence of these losses. It presents a model that rationalizes these phenomena through supply and demand shifting investment, revealing significant aggregate implications on GDP.",
+    "subject": null,
+    "keywords": [
+      "negative earnings",
+      "investment",
+      "US corporations",
+      "GDP",
+      "supply shifting",
+      "demand shifting"
+    ],
+    "document_metadata": {
+      "place": "Northwestern University",
+      "date_of_publication": "May 8, 2026"
+    },
+    "layout_metadata": {
+      "header": null,
+      "footer": "arXiv:2605.02680v2  [econ.GN]  7 May 2026"
+    }
+  }
+}

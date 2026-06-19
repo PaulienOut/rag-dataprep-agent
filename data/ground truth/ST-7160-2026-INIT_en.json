@@ -1,0 +1,46 @@
+{
+  "source_path": "data/Selection/ST-7160-2026-INIT_en.pdf",
+  "file_metadata": {
+    "filename": "ST-7160-2026-INIT_en.pdf",
+    "path": "data/Selection/ST-7160-2026-INIT_en.pdf",
+    "file_type": "pdf",
+    "size_bytes": 277119,
+    "modified_at": "2026-06-06T17:35:59.294614+00:00"
+  },
+  "pdf_metadata": {
+    "CreationDate": "D:20260320113932+01'00'",
+    "Creator": "Foxit Rendition Server 3.1.63.0",
+    "ModDate": "D:20260320114020+01'00'",
+    "Producer": "Foxit FXPDFA 1.2; modified using iText\u00ae 5.5.12 \u00a92000-2017 iText Group NV (AGPL-version)",
+    "page_count": 3
+  },
+  "document_type": {
+    "document_type": "eu_document",
+    "confidence": 0.95,
+    "evidence": [
+      "EU institutional language detected: council of the european union, brussels",
+      "EU document code detected in filename"
+    ]
+  },
+  "content_metadata": {
+    "title": "DRAFT MINUTES COUNCIL OF THE EUROPEAN UNION",
+    "summary": "This document contains the draft minutes of the Council of the European Union's meeting on economic and financial matters, detailing the agenda items and discussions held on 10 March 2026.",
+    "subject": "Economic and Financial Affairs",
+    "keywords": [
+      "Council of the European Union",
+      "Economic Affairs",
+      "Financial Affairs",
+      "Minutes",
+      "Meeting",
+      "Agenda"
+    ],
+    "document_metadata": {
+      "place": "Brussels",
+      "date_of_publication": "20 March 2026"
+    },
+    "layout_metadata": {
+      "header": null,
+      "footer": "7160/26 GIP.CRP2 EN"
+    }
+  }
+ }
