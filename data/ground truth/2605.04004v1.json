@@ -1,0 +1,45 @@
+{
+  "source_path": "data/Selection/2605.04004v1.pdf",
+  "file_metadata": {
+    "filename": "2605.04004v1.pdf",
+    "path": "data/Selection/2605.04004v1.pdf",
+    "file_type": "pdf",
+    "size_bytes": 1116772,
+    "modified_at": "2026-06-06T17:35:59.205904+00:00"
+  },
+  "pdf_metadata": {
+    "Title": "mesfin_2026_structural_limits_mnq.docx",
+    "Producer": "Skia/PDF m149 Google Docs Renderer",
+    "page_count": 18
+  },
+  "document_type": {
+    "document_type": "arxiv_paper",
+    "confidence": 0.8500000000000001,
+    "evidence": [
+      "arXiv identifier detected"
+    ]
+  },
+  "content_metadata": {
+    "title": "Structural Limits of OHLCV-Based Intraday Signals in MNQ Futures: A Systematic Falsification Study",
+    "summary": "This paper examines the effectiveness of intraday momentum signals derived from OHLCV data for trading in Micro E-Mini Nasdaq 100 futures. It finds that no tested signals meet strict validation criteria under realistic execution constraints, indicating a structurally constrained trading edge.",
+    "subject": null,
+    "keywords": [
+      "intraday momentum",
+      "futures markets",
+      "OHLCV",
+      "systematic falsification",
+      "walk-forward validation",
+      "market microstructure",
+      "E-mini Nasdaq",
+      "transaction costs"
+    ],
+    "document_metadata": {
+      "place": null,
+      "date_of_publication": "May 2026"
+    },
+    "layout_metadata": {
+      "header": null,
+      "footer": "Mesfin (2026)"
+    }
+  }
+}

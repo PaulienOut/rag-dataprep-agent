@@ -1,0 +1,47 @@
+{
+  "source_path": "data/Selection/CM-2695-2026-INIT_en.pdf",
+  "file_metadata": {
+    "filename": "CM-2695-2026-INIT_en.pdf",
+    "path": "data/Selection/CM-2695-2026-INIT_en.pdf",
+    "file_type": "pdf",
+    "size_bytes": 224952,
+    "modified_at": "2026-06-06T17:35:59.284764+00:00"
+  },
+  "pdf_metadata": {
+    "CreationDate": "D:20260511171527+02'00'",
+    "Creator": "Foxit Rendition Server 3.5.3425.0",
+    "ModDate": "D:20260511171551+02'00'",
+    "Producer": "Foxit FXPDFA 1.2; modified using iText\u00ae 5.5.12 \u00a92000-2017 iText Group NV (AGPL-version)",
+    "page_count": 2
+  },
+  "document_type": {
+    "document_type": "eu_document",
+    "confidence": 0.95,
+    "evidence": [
+      "EU institutional language detected: european council, council of the european union, brussels",
+      "EU document code detected in filename"
+    ]
+  },
+  "content_metadata": {
+    "title": "NOTICE OF MEETING AND PROVISIONAL AGENDA",
+    "summary": "This document outlines the provisional agenda for the Council of the European Union meeting scheduled for 26 May 2026, including discussions on non-legislative items and legislative deliberations regarding the Multiannual Financial Framework.",
+    "subject": "General Affairs",
+    "keywords": [
+      "Council of the European Union",
+      "agenda",
+      "meeting",
+      "General Affairs",
+      "legislation",
+      "EU-UK relations",
+      "Multiannual Financial Framework"
+    ],
+    "document_metadata": {
+      "place": "Brussels",
+      "date_of_publication": "11 May 2026"
+    },
+    "layout_metadata": {
+      "header": "Council of the European Union General Secretariat",
+      "footer": "CM 2695/26"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "source_path": "data/Selection/NewUsersGuidetoOracleText.pdf",
+  "file_metadata": {
+    "filename": "NewUsersGuidetoOracleText.pdf",
+    "path": "data/Selection/NewUsersGuidetoOracleText.pdf",
+    "file_type": "pdf",
+    "size_bytes": 498585,
+    "modified_at": "2026-06-06T17:35:59.432525+00:00"
+  },
+  "pdf_metadata": {
+    "Producer": "macOS Version 12.6.9 (Build 21G726) Quartz PDFContext",
+    "CreationDate": "D:20231018094933Z00'00'",
+    "ModDate": "D:20231018094933Z00'00'",
+    "page_count": 9
+  },
+  "document_type": {
+    "document_type": "manual",
+    "confidence": 0.65,
+    "evidence": [
+      "instructional table of contents detected"
+    ]
+  },
+  "content_metadata": {
+    "title": "A New User's Guide to Oracle Text in Oracle Database",
+    "summary": "This document provides an introductory guide on using Oracle Text for full-text retrieval in Oracle Database, highlighting its features, use cases, and implementation examples.",
+    "subject": null,
+    "keywords": [
+      "Oracle Text",
+      "full-text retrieval",
+      "database",
+      "SQL",
+      "text indexing"
+    ],
+    "document_metadata": {
+      "place": null,
+      "date_of_publication": "September, 2023"
+    },
+    "layout_metadata": {
+      "header": "ORACLE"
+      "footer": "A New User's Guide to Oracle Text in Oracle Database  /  Version 1.0  Copyright \u00a9 2023, Oracle and/or its affiliates  /  Public",
+    }
+  }
+}

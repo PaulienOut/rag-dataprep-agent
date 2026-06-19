@@ -1,0 +1,48 @@
+{
+  "source_path": "data/Selection/pie_manual.pdf",
+  "file_metadata": {
+    "filename": "pie_manual.pdf",
+    "path": "data/Selection/pie_manual.pdf",
+    "file_type": "pdf",
+    "size_bytes": 1020196,
+    "modified_at": "2026-06-06T17:35:59.441184+00:00"
+  },
+  "pdf_metadata": {
+    "ModDate": "D:20040603102600-07'00'",
+    "CreationDate": "D:20040520104504Z",
+    "Producer": "Adobe PDF Library 5.0",
+    "Creator": "Adobe InDesign 2.0.2",
+    "Trapped": "/False",
+    "Title": "",
+    "page_count": 74
+  },
+  "document_type": {
+    "document_type": "manual",
+    "confidence": 0.75,
+    "evidence": [
+      "manual language detected: manual"
+    ]
+  },
+  "content_metadata": {
+    "title": "User\u2019s Manual",
+    "summary": "This user manual provides instructions on installing and using Microsoft Picture It! Express, including features for photo editing and importing images. It outlines steps for setup, basic functions, and troubleshooting.",
+    "subject": "Microsoft Picture It! Express",
+    "keywords": [
+      "User Manual",
+      "Microsoft",
+      "Picture It!",
+      "Express",
+      "Photo Editing",
+      "Installation",
+      "Troubleshooting"
+    ],
+    "document_metadata": {
+      "place": null,
+      "date_of_publication": "\u00a9 2004 Microsoft Corporation. All rights reserved."
+    },
+    "layout_metadata": {
+      "header": null,
+      "footer": null,
+    }
+  }
+ }

@@ -1,0 +1,49 @@
+{
+  "source_path": "data/Selection/windows_azure_sql_database_tutorials.pdf",
+  "file_metadata": {
+    "filename": "windows_azure_sql_database_tutorials.pdf",
+    "path": "data/Selection/windows_azure_sql_database_tutorials.pdf",
+    "file_type": "pdf",
+    "size_bytes": 4260512,
+    "modified_at": "2026-06-06T17:35:59.517627+00:00"
+  },
+  "pdf_metadata": {
+    "ModDate": "D:20130110081807+05'30'",
+    "CreationDate": "D:20121221130631+05'30'",
+    "Title": "Windows_Azure_SQL_Database_Tutorials.pdf",
+    "Creator": "Acrobat PDFMaker 9.0 for Word",
+    "Author": "",
+    "Producer": "Adobe PDF Library 9.0",
+    "codeMantra, LLC": "http://www.codemantra.com",
+    "Universal PDF": "The process that creates this PDF constitutes a trade secret of codeMantra, LLC and is protected by the copyright laws of the United States",
+    "page_count": 92
+  },
+  "document_type": {
+    "document_type": "manual",
+    "confidence": 0.95,
+    "evidence": [
+      "manual language detected: tutorial, manual, step-by-step"
+    ]
+  },
+  "content_metadata": {
+    "title": "Windows Azure SQL Database Tutorials",
+    "summary": "These tutorials are designed for beginners with some .NET development experience, introducing key features and components of Windows Azure. Each tutorial builds upon the previous ones but can also be used independently.",
+    "subject": "Windows Azure SQL Database",
+    "keywords": [
+      "Windows Azure",
+      "SQL Database",
+      "tutorials",
+      "beginners",
+      ".NET",
+      "cloud services"
+    ],
+    "document_metadata": {
+      "place": null,
+      "date_of_publication": "November 2012"
+    },
+    "layout_metadata": {
+      "header": null,
+      "footer": null,
+    }
+  }
+ }

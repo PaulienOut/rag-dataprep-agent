@@ -1,0 +1,46 @@
+{
+  "source_path": "data/Selection/PRESS RELEASE 343_26.pdf",
+  "file_metadata": {
+    "filename": "PRESS RELEASE 343_26.pdf",
+    "path": "data/Selection/PRESS RELEASE 343_26.pdf",
+    "file_type": "pdf",
+    "size_bytes": 45365,
+    "modified_at": "2026-06-06T17:35:59.287432+00:00"
+  },
+  "pdf_metadata": {
+    "Title": "Organic farming: Council negotiating position on simpler and clearer organic farming rules agreed",
+    "Creator": "wkhtmltopdf 0.12.6",
+    "Producer": "Qt 4.8.7",
+    "CreationDate": "D:20260512142757+02'00'",
+    "page_count": 2
+  },
+  "document_type": {
+    "document_type": "eu_document",
+    "confidence": 0.75,
+    "evidence": [
+      "EU institutional language detected: brussels"
+    ]
+  },
+  "content_metadata": {
+    "title": "Organic farming: Council negotiating position on simpler and clearer organic farming rules agreed",
+    "summary": "The Council of the EU has agreed on a negotiating position to update the EU rules on organic production and labeling, aiming for simplification and clarity. Key points include exemptions for small operators and clarifications on imported organic products.",
+    "subject": "Negotiating position on organic farming rules",
+    "keywords": [
+      "organic farming",
+      "EU rules",
+      "simplification",
+      "negotiating position",
+      "labeling",
+      "consumer trust",
+      "agriculture"
+    ],
+    "document_metadata": {
+      "place": "BRUSSELS",
+      "date_of_publication": "11/05/2026"
+    },
+    "layout_metadata": {
+      "header": "Council of the EU PRESS EN PRESS RELEASE",
+      "footer": "Press office - General Secretariat of the Council of the EU Rue de la Loi 175 - B-1048 BRUSSELS - Tel.: +32 (0)2 281 6319 press@consilium.europa.eu www.consilium.europa.eu/press"
+    }
+  }
+ }
