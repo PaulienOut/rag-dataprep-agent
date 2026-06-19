@@ -7,7 +7,7 @@ from rag_dataprep_agent.inventory.file_scanner import scan_files
 from rag_dataprep_agent.llm.agent import DocumentPrepAgent
 from rag_dataprep_agent.llm.client import build_openai_client
 from rag_dataprep_agent.models import PreparedDocument
-from rag_dataprep_agent.observability import configure_logfire, info, instrument_openai_client, span
+from rag_dataprep_agent.observability import configure_logfire, info, instrument_openai_client, span, tool_span
 from rag_dataprep_agent.parsers.pdf_parser import parse_pdf
 from rag_dataprep_agent.storage.manifests import write_manifest
 from rag_dataprep_agent.tools.chunking import chunk_text
@@ -28,7 +28,8 @@ def prepare_documents(
     client = build_openai_client(settings.openai_api_key) if use_llm else None
     instrument_openai_client(client, settings)
     agent = DocumentPrepAgent(client=client, metadata_model=settings.metadata_model)
-    records = scan_files(input_path)
+    with tool_span(settings, "scan_files", input_path=str(input_path)):
+        records = scan_files(input_path)
     if max_files is not None:
         records = records[:max_files]
 
@@ -44,14 +45,46 @@ def prepare_documents(
     ):
         for record in records:
             with span(settings, "Prepare document", source_path=str(record.path), file_size=record.size_bytes):
-                parsed = parse_pdf(record)
-                document_type = detect_document_type(parsed)
-                content_metadata = agent.extract_content_metadata(parsed)
-                chunks = chunk_text(parsed.text, settings.chunk_size, settings.chunk_overlap)
+                with tool_span(settings, "parse_pdf", source_path=str(record.path), file_size=record.size_bytes):
+                    parsed = parse_pdf(record)
+                with tool_span(settings, "detect_document_type", source_path=str(record.path)):
+                    document_type = detect_document_type(parsed)
+                with tool_span(
+                    settings,
+                    "extract_content_metadata",
+                    source_path=str(record.path),
+                    use_llm=client is not None,
+                ):
+                    content_metadata = agent.extract_content_metadata(parsed)
+                with tool_span(
+                    settings,
+                    "chunk_text",
+                    source_path=str(record.path),
+                    chunk_size=settings.chunk_size,
+                    chunk_overlap=settings.chunk_overlap,
+                ):
+                    chunks = chunk_text(parsed.text, settings.chunk_size, settings.chunk_overlap)
 
                 if embed and chunks:
-                    remote_embeddings = agent.embed_texts([chunk.text for chunk in chunks], settings.embedding_model)
-                    embeddings = remote_embeddings or [deterministic_embedding(chunk.text) for chunk in chunks]
+                    with tool_span(
+                        settings,
+                        "embed_texts",
+                        source_path=str(record.path),
+                        embedding_model=settings.embedding_model,
+                        chunk_count=len(chunks),
+                        use_llm=client is not None,
+                    ):
+                        remote_embeddings = agent.embed_texts([chunk.text for chunk in chunks], settings.embedding_model)
+                    if remote_embeddings:
+                        embeddings = remote_embeddings
+                    else:
+                        with tool_span(
+                            settings,
+                            "deterministic_embedding",
+                            source_path=str(record.path),
+                            chunk_count=len(chunks),
+                        ):
+                            embeddings = [deterministic_embedding(chunk.text) for chunk in chunks]
                     chunks = [
                         type(chunk)(
                             chunk_id=chunk.chunk_id,
@@ -63,15 +96,18 @@ def prepare_documents(
                         for index, chunk in enumerate(chunks)
                     ]
 
+                with tool_span(settings, "file_record_to_metadata", source_path=str(record.path)):
+                    file_metadata = file_record_to_metadata(record)
                 prepared = PreparedDocument(
                     source_path=str(record.path),
-                    file_metadata=file_record_to_metadata(record),
+                    file_metadata=file_metadata,
                     pdf_metadata=parsed.pdf_metadata | {"page_count": parsed.page_count},
                     document_type=document_type,
                     content_metadata=content_metadata,
                     chunks=chunks,
                 )
-                written_path = write_manifest(prepared, output_dir)
+                with tool_span(settings, "write_manifest", source_path=str(record.path), output_dir=str(output_dir)):
+                    written_path = write_manifest(prepared, output_dir)
                 written.append(written_path)
                 info(
                     settings,
