@@ -1,0 +1,46 @@
+{
+  "source_path": "data/Selection/Microsoft Access 2010 Product Guide_Final.pdf",
+  "file_metadata": {
+    "filename": "Microsoft Access 2010 Product Guide_Final.pdf",
+    "path": "data/Selection/Microsoft Access 2010 Product Guide_Final.pdf",
+    "file_type": "pdf",
+    "size_bytes": 2414036,
+    "modified_at": "2026-06-06T17:35:59.419054+00:00"
+  },
+  "pdf_metadata": {
+    "Author": "Beth Melton",
+    "Creator": "Microsoft\u00ae Word 2010",
+    "CreationDate": "D:20100406183217-05'00'",
+    "ModDate": "D:20100406183217-05'00'",
+    "Producer": "Microsoft\u00ae Word 2010",
+    "page_count": 53
+  },
+  "document_type": {
+    "document_type": "manual",
+    "confidence": 0.8500000000000001,
+    "evidence": [
+      "manual language detected: product guide, quick start"
+    ]
+  },
+  "content_metadata": {
+    "title": "Microsoft Access 2010 Product Guide",
+    "summary": "This guide provides an overview of Microsoft Access 2010, detailing its features and enhancements designed to improve productivity and data management. It emphasizes ease of use and the simplicity of building databases without requiring extensive database knowledge.",
+    "subject": null,
+    "keywords": [
+      "Microsoft Access",
+      "Product Guide",
+      "2010",
+      "Database",
+      "Features",
+      "Productivity"
+    ],
+    "document_metadata": {
+      "place": null,
+      "date_of_publication": "2010"
+    },
+    "layout_metadata": {
+      "header": null,
+      "footer": null
+    }
+  }
+}

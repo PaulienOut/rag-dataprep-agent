@@ -1,0 +1,49 @@
+{
+  "source_path": "data/Selection/78364.pdf",
+  "file_metadata": {
+    "filename": "78364.pdf",
+    "path": "data/Selection/78364.pdf",
+    "file_type": "pdf",
+    "size_bytes": 214012,
+    "modified_at": "2026-06-06T17:35:59.281016+00:00"
+  },
+  "pdf_metadata": {
+    "Producer": "Neevia Document Converter 4.9.5",
+    "CreationDate": "D:20040326105217",
+    "ModDate": "D:20040326105217",
+    "Title": "Microsoft Word - 78364",
+    "Creator": "Neevia Document Converter 4.9.5",
+    "Author": "SUTHEDO",
+    "page_count": 31
+  },
+  "document_type": {
+    "document_type": "eu_document",
+    "confidence": 0.8500000000000001,
+    "evidence": [
+      "manual language detected: quick start",
+      "EU institutional language detected: european council, brussels"
+    ]
+  },
+  "content_metadata": {
+    "title": "Presidency Conclusions",
+    "summary": "This document presents the Presidency Conclusions from the Brussels European Council held on 12 and 13 December 2003. It outlines agreements reached by Member States regarding various sectors, including economic growth, transport, telecommunications, and employment.",
+    "subject": "Brussels European Council",
+    "keywords": [
+      "Brussels",
+      "European Council",
+      "Presidency Conclusions",
+      "economic growth",
+      "telecommunications",
+      "transport",
+      "employment"
+    ],
+    "document_metadata": {
+      "place": "Brussels",
+      "date_of_publication": "5 February 2004"
+    },
+    "layout_metadata": {
+      "header": "Presidency Conclusions \u2013 Brussels, 12/13 December 2003",
+      "footer": "5381/04   EN"
+    }
+  }
+}

@@ -106,7 +106,7 @@ For running the monitoring an account on Logfire is required. If none exists, on
        LOGFIRE_SERVICE_NAME=rag-dataprep-agent
        LOGFIRE_ENVIRONMENT=development
 
-When enabled, Logfire records spans for the full preparation run and each document, plus summary events with document type, page count, chunk count, and manifest path. OpenAI metadata and embedding calls are also instrumented when `--use-llm` or remote embeddings are active.
+When enabled, Logfire records spans for the full preparation run, each document, and each tool call: file scanning, PDF parsing, document type detection, content metadata extraction, chunking, embedding generation, file metadata conversion, and manifest writing. It also records summary events with document type, page count, chunk count, and manifest path. OpenAI metadata and embedding calls are instrumented when `--use-llm` or remote embeddings are active.
 
 ## Testing
 

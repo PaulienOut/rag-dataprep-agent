@@ -1,0 +1,47 @@
+{
+  "source_path": "data/Selection/SPEECH 296_26.pdf",
+  "file_metadata": {
+    "filename": "SPEECH 296_26.pdf",
+    "path": "data/Selection/SPEECH 296_26.pdf",
+    "file_type": "pdf",
+    "size_bytes": 49694,
+    "modified_at": "2026-06-06T17:35:59.288298+00:00"
+  },
+  "pdf_metadata": {
+    "Title": "Speech by President Ant\u00f3nio Costa at the 47th colloquium on international relations at the University of Minho",
+    "Creator": "wkhtmltopdf 0.12.6",
+    "Producer": "Qt 4.8.7",
+    "CreationDate": "D:20260512143301+02'00'",
+    "page_count": 5
+  },
+  "document_type": {
+    "document_type": "unknown",
+    "confidence": 0.0,
+    "evidence": [
+      "no strong type signal detected"
+    ]
+  },
+  "content_metadata": {
+    "title": "Speech by President Ant\u00f3nio Costa at the 47th colloquium on international relations at the University of Minho",
+    "summary": "In his speech, President Ant\u00f3nio Costa discusses the challenges facing international relations today, emphasizing the importance of a rules-based international order, the need for global partnerships, and the European Union's role in promoting peace, prosperity, and stability. He highlights the significance of international law and cooperation in addressing global challenges.",
+    "subject": "International Relations",
+    "keywords": [
+      "International Relations",
+      "EU Strategy",
+      "Ant\u00f3nio Costa",
+      "Global Challenges",
+      "Peace",
+      "Partnerships",
+      "Prosperity",
+      "Sustainable Development"
+    ],
+    "document_metadata": {
+      "place": null,
+      "date_of_publication": "28/04/2026"
+    },
+    "layout_metadata": {
+      "header": "Council of the EU PRESS EN SPEECH",
+      "footer": null
+    }
+  }
+}

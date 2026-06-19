@@ -36,6 +36,10 @@ def span(settings: Settings, msg_template: str, **attributes: Any):
     return logfire.span(msg_template, **attributes)
 
 
+def tool_span(settings: Settings, tool_name: str, **attributes: Any):
+    return span(settings, f"Tool call: {tool_name}", tool_name=tool_name, **attributes)
+
+
 def info(settings: Settings, msg_template: str, **attributes: Any) -> None:
     if settings.logfire_enabled:
         logfire.info(msg_template, **attributes)
