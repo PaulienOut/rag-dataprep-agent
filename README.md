@@ -116,6 +116,38 @@ Run the test suite with:
 
 The default tests do not call OpenAI. They test file scanning, PDF parsing, document type detection, chunking, and the pipeline using local deterministic behavior.
 
+## Evaluation
+
+The project includes manually created ground truth for the selected evaluation
+documents. The fields, matching rules, metrics, and exclusions are defined in
+[`docs/evaluation-contract.md`](docs/evaluation-contract.md).
+
+Run deterministic evaluation:
+
+       make evaluate
+
+This first prepares the 14 selected PDFs in `data/Selection/` and then evaluates
+the resulting manifests against `data/ground_truth/`.
+
+The report is written to `evaluation-results/baseline.json`. It contains
+aggregate scores and per-document comparisons with the expected and generated
+values. Extra manifests are reported but do not affect the score. Missing
+manifests count as failures.
+
+To add optional OpenAI judging for summaries:
+
+       make evaluate-llm
+
+This makes one live OpenAI call per matched document and writes
+`evaluation-results/baseline-llm.json`. The judge scores factual consistency
+with the manually reviewed reference summary, coverage, relevance, and
+conciseness from 1 to 5, and records its reasoning. It does not independently
+fact-check the complete source PDF. Use `--judge-model` with the direct runner
+command to select another model.
+
+The recorded baseline and guidance for interpreting the metrics are in
+[`docs/evaluation-baseline.md`](docs/evaluation-baseline.md).
+
 ## Data
 
 Put PDF documents in the `data/` folder, or pass the path to another PDF or folder when running the pipeline.
