@@ -47,6 +47,8 @@ def test_runner_writes_json_report(
             str(output_path),
             "--extraction-mode",
             "local",
+            "--extraction-model",
+            "none",
         ],
     )
 
@@ -56,6 +58,7 @@ def test_runner_writes_json_report(
     assert report["aggregate"]["manifest_coverage"] == 1.0
     assert report["aggregate"]["document_type_accuracy"] == 1.0
     assert report["configuration"]["extraction_mode"] == "local"
+    assert report["configuration"]["extraction_model"] == "none"
     assert report["configuration"]["ground_truth_dir"] == str(ground_truth_dir)
     assert report["configuration"]["manifests_dir"] == str(manifests_dir)
     assert "Wrote evaluation report" in capsys.readouterr().out

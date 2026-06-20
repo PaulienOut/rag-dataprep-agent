@@ -131,3 +131,32 @@ def test_metadata_shapes_are_present_when_values_are_unknown() -> None:
         "header": None,
         "footer": None,
     }
+
+
+def test_keyword_extraction_prefers_topic_phrases_over_isolated_words() -> None:
+    parsed = ParsedDocument(
+        file=FileRecord(Path("document.pdf"), "pdf", 100, "2026-01-01T00:00:00+00:00"),
+        text=(
+            "[Page 1]\n"
+            "Disposition Effect and Systematic Risk Exposure\n"
+            "This study examines the disposition effect in short exposure positions. "
+            "Systematic risk exposure shapes the disposition effect.\n"
+            "[Page 2]\n"
+            "The disposition effect remains important under integrated framing."
+        ),
+        page_count=2,
+        pdf_metadata={"Title": "Disposition Effect and Systematic Risk Exposure"},
+    )
+
+    metadata = extract_content_metadata(parsed)
+
+    assert "disposition effect" in metadata.keywords
+    assert "systematic risk exposure" in metadata.keywords
+    assert "disposition" not in metadata.keywords
+    assert "effect" not in metadata.keywords
+
+
+def test_keyword_extraction_uses_single_words_only_as_a_fallback() -> None:
+    metadata = extract_content_metadata(_parsed("[Page 1]\nExcel"))
+
+    assert metadata.keywords == ["excel"]

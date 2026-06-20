@@ -23,6 +23,11 @@ def build_parser() -> argparse.ArgumentParser:
         default="unknown",
         help="How the evaluated manifests were produced",
     )
+    parser.add_argument(
+        "--extraction-model",
+        default=None,
+        help="Model used to produce manifests when extraction mode is llm",
+    )
     parser.add_argument("--llm-judge", action="store_true", help="Use OpenAI to judge generated summaries")
     parser.add_argument("--judge-model", default="gpt-4o-mini", help="OpenAI model used for summary judging")
     return parser
@@ -49,6 +54,7 @@ def main() -> None:
             "ground_truth_dir": str(Path(args.ground_truth_dir)),
             "manifests_dir": str(Path(args.manifests_dir)),
             "extraction_mode": args.extraction_mode,
+            "extraction_model": args.extraction_model,
         }
     )
 

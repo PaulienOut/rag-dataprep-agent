@@ -65,13 +65,24 @@ Create chunk embeddings as well:
 
        uv run python -m rag_dataprep_agent.cli "data" --output-dir prepared --max-files 3 --embed
 
-Use OpenAI for richer content metadata extraction:
+For the best metadata quality, use OpenAI extraction:
 
        uv run python -m rag_dataprep_agent.cli "data" --output-dir prepared --max-files 3 --use-llm
 
 Use OpenAI for metadata extraction and embeddings:
 
        uv run python -m rag_dataprep_agent.cli "data" --output-dir prepared --max-files 3 --use-llm --embed
+
+The `--use-llm` option is recommended when metadata quality matters. In the
+14-document evaluation dataset, `gpt-4o-mini` improved keyword F1 from `0.097`
+for the original local extractor to `0.582`, and also improved title, subject,
+place, date, and footer extraction. It makes OpenAI API calls and therefore
+requires an API key, network access, and paid API usage. The exact cost depends
+on the selected model and document text sent to it.
+
+Without `--use-llm`, the pipeline runs locally without OpenAI metadata calls.
+This is useful for offline development, testing, or cost-sensitive processing,
+but its extracted metadata is less accurate on the current evaluation dataset.
 
 Enable Logfire monitoring for a run:
 
@@ -158,6 +169,12 @@ command to select another model.
 
 The recorded baseline and guidance for interpreting the metrics are in
 [`docs/evaluation-baseline.md`](docs/evaluation-baseline.md).
+
+The first measured keyword extraction experiment is documented in
+[`docs/keyword-extraction-experiment-v1.md`](docs/keyword-extraction-experiment-v1.md).
+
+The comparison with `gpt-4o-mini` metadata extraction is documented in
+[`docs/keyword-extraction-experiment-llm.md`](docs/keyword-extraction-experiment-llm.md).
 
 ## Future Work
 
