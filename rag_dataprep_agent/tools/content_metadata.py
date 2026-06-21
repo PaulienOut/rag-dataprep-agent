@@ -1,8 +1,63 @@
 from __future__ import annotations
 
 import re
+from collections import Counter
 
 from rag_dataprep_agent.models import ContentMetadata, ParsedDocument
+
+KEYWORD_STOPWORDS = {
+    "a",
+    "about",
+    "after",
+    "also",
+    "an",
+    "and",
+    "are",
+    "as",
+    "at",
+    "be",
+    "before",
+    "between",
+    "both",
+    "by",
+    "can",
+    "document",
+    "documents",
+    "for",
+    "from",
+    "has",
+    "have",
+    "how",
+    "in",
+    "into",
+    "is",
+    "it",
+    "its",
+    "may",
+    "more",
+    "not",
+    "of",
+    "on",
+    "or",
+    "our",
+    "page",
+    "paper",
+    "that",
+    "the",
+    "their",
+    "there",
+    "these",
+    "this",
+    "to",
+    "using",
+    "was",
+    "we",
+    "were",
+    "which",
+    "will",
+    "with",
+    "would",
+}
 
 
 def extract_content_metadata(parsed: ParsedDocument) -> ContentMetadata:
@@ -11,7 +66,7 @@ def extract_content_metadata(parsed: ParsedDocument) -> ContentMetadata:
     title = _metadata_title(parsed) or _first_title_like_line(lines)
     summary = _first_sentences(text, limit=2)
     subject = _metadata_subject(parsed)
-    keywords = _keywords(text)
+    keywords = _keywords(text, title=title)
     document_metadata = _extract_document_metadata(text, lines)
     layout_metadata = _extract_layout_metadata(text)
     return ContentMetadata(
@@ -54,26 +109,89 @@ def _first_sentences(text: str, limit: int) -> str:
     return " ".join(sentences[:limit])[:900]
 
 
-def _keywords(text: str, limit: int = 8) -> list[str]:
-    words = re.findall(r"[A-Za-z][A-Za-z-]{4,}", text.lower())
-    stopwords = {
-        "about",
-        "after",
-        "before",
-        "between",
-        "document",
-        "documents",
-        "their",
-        "there",
-        "these",
-        "which",
-        "would",
-    }
-    counts: dict[str, int] = {}
-    for word in words:
-        if word not in stopwords:
-            counts[word] = counts.get(word, 0) + 1
-    return [word for word, _ in sorted(counts.items(), key=lambda item: item[1], reverse=True)[:limit]]
+def _keywords(text: str, title: str | None = None, limit: int = 8) -> list[str]:
+    """Extract useful topic phrases without an LLM.
+
+    Two- and three-word phrases are ranked by document frequency, with extra
+    weight for phrases appearing in the title or first page. Single words are
+    only used as a fallback when there are too few phrase candidates.
+    """
+    clean_text = re.sub(r"\[Page \d+\]", " ", text)
+    clean_text = re.sub(r"(?<=\w)-\s+(?=\w)", "", clean_text)
+    tokens = _keyword_tokens(clean_text)
+    title_tokens = _keyword_tokens(title or "")
+    first_page_tokens = _keyword_tokens(_first_page(text))
+
+    phrase_counts = _ngram_counts(tokens)
+    title_phrases = set(_ngram_counts(title_tokens))
+    first_page_phrases = set(_ngram_counts(first_page_tokens))
+    ranked_phrases = sorted(
+        phrase_counts,
+        key=lambda phrase: (
+            phrase_counts[phrase] * len(phrase.split())
+            + (8 if phrase in title_phrases else 0)
+            + (3 if phrase in first_page_phrases else 0),
+            phrase_counts[phrase],
+            len(phrase),
+            phrase,
+        ),
+        reverse=True,
+    )
+
+    selected: list[str] = []
+    for phrase in ranked_phrases:
+        if any(_phrases_overlap(phrase, existing) for existing in selected):
+            continue
+        selected.append(phrase)
+        if len(selected) == limit:
+            return selected
+
+    single_counts = Counter(token for token in tokens if _is_keyword_content_word(token))
+    for word, _ in single_counts.most_common():
+        if any(word in phrase.split() for phrase in selected):
+            continue
+        selected.append(word)
+        if len(selected) == limit:
+            break
+    return selected
+
+
+def _keyword_tokens(text: str) -> list[str]:
+    return re.findall(r"[A-Za-z][A-Za-z0-9-]+", text.casefold())
+
+
+def _ngram_counts(tokens: list[str]) -> Counter[str]:
+    counts: Counter[str] = Counter()
+    for size in (3, 2):
+        for index in range(len(tokens) - size + 1):
+            words = tokens[index : index + size]
+            if not _valid_keyword_phrase(words):
+                continue
+            counts[" ".join(words)] += 1
+    return counts
+
+
+def _valid_keyword_phrase(words: list[str]) -> bool:
+    if words[0] in KEYWORD_STOPWORDS or words[-1] in KEYWORD_STOPWORDS:
+        return False
+    content_words = [word for word in words if _is_keyword_content_word(word)]
+    return len(content_words) >= 2 and len(set(words)) > 1
+
+
+def _is_keyword_content_word(word: str) -> bool:
+    return word not in KEYWORD_STOPWORDS and len(word) >= 2
+
+
+def _phrases_overlap(candidate: str, selected: str) -> bool:
+    candidate_words = set(candidate.split())
+    selected_words = set(selected.split())
+    shorter = min(len(candidate_words), len(selected_words))
+    return shorter > 0 and len(candidate_words & selected_words) / shorter >= 0.75
+
+
+def _first_page(text: str) -> str:
+    match = re.search(r"\[Page 1\](.*?)(?:\[Page 2\]|$)", text, re.DOTALL)
+    return match.group(1) if match else text[:6000]
 
 
 def _extract_document_metadata(text: str, lines: list[str]) -> dict[str, str | None]:
@@ -172,5 +290,3 @@ def _extract_layout_metadata(text: str) -> dict[str, str | None]:
                     break
     
     return metadata
-
-
